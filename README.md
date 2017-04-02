@@ -1,5 +1,6 @@
 # tasks
 #documentation of the methods exported
+
 1)Product Model:
 
   createProduct()
