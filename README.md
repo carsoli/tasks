@@ -1,12 +1,14 @@
 # tasks
 #documentation of the methods exported
 1)Product Model:
+
   createProduct()
   @description: 
   @params: newProduct: Object
   @returns void
 
 2)Cart Model:
+  
   getItems()
   @description: returns all items in the cart
   @params none
