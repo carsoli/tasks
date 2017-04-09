@@ -23,12 +23,12 @@ module.exports.cart = function(){
 }
 
 
-module.exports.getItems =() =>{
+module.exports.getItems = function(){
     return this.items;
 }
 
 
-module.exports.hasProduct = (product)=>{
+module.exports.hasProduct = function(product){
     this.items.forEach((item)=>{
         if(item.product.id == product.id)
             return true;
@@ -37,7 +37,7 @@ module.exports.hasProduct = (product)=>{
 }
 
 
-module.exports.addItem= (product) =>{
+module.exports.addItem= function(product){
     this.items.forEach((item)=>{
         if(item.product.id == product.id){
             item.count++; 
@@ -52,7 +52,7 @@ module.exports.addItem= (product) =>{
 }
 
 
-module.exports.removeItem = (product) =>{
+module.exports.removeItem = function(product){
     this.items.forEach((item,index)=>{
         if(item.product.id == product.id){
             if(item.count>0){
@@ -69,7 +69,7 @@ module.exports.removeItem = (product) =>{
 }
 
 
-module.exports.removeProduct = (product)=>{
+module.exports.removeProduct = function(product){
     this.items.forEach((item,index)=>{
         if(item.product.id==product.id){
             this.items.splice(index,1);
@@ -82,7 +82,7 @@ module.exports.removeProduct = (product)=>{
 
 
 
-module.exports.getItem = (product)=>{
+module.exports.getItem = function(product){
     this.items.forEach((item)=>{
         if(item.product.id == product.id)
         {
@@ -93,7 +93,7 @@ module.exports.getItem = (product)=>{
 }
 
 
-module.exports.getTotal = ()=>{
+module.exports.getTotal = function(){
     var total;
     this.items.forEach((item)=>{
         total+= item.price;//compoud price of each item
@@ -102,7 +102,7 @@ module.exports.getTotal = ()=>{
 }
 
 
-module.exports.clearCart = ()=>{
+module.exports.clearCart = function(){
     this.items.forEach((item)=>{
         this.items.pop();
     });
