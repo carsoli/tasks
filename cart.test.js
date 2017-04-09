@@ -1,11 +1,11 @@
-var module = require('./cart.js');
+require('./cart.js');
 
-var p1 = module.product( 1, 'cheese', 20);
-var p1 = module.product( 2, 'milk', 10);
+var p1 = new product( 1, 'cheese', 20);
+// var p1 = new product( 2, 'milk', 10);
 
 // var p2 = {id: 2,name: 'milk', price: 10};
 
-var c1 = module.cart();
+var c1 = new cart();
 
 console.log(c1.getItems());
 
