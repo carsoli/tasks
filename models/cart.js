@@ -43,12 +43,6 @@ var Cart = mongoose.model('Cart', cartSchema);
 module.exports = Cart;
 
 
-/*
-    getItems()
-    returns all items in the cart
-    @params none
-    returns result: []
-*/
 module.exports.getItems = function()
 {
     Cart.find({}, (err, result)=> 
@@ -67,12 +61,6 @@ module.exports.getItems = function()
 };
 
 
-/*
-    hasProduct()
-    checks if a product exists in a cart using its id (not _id)
-    @params product: Object 
-    returns boolean
-*/
 module.exports.hasProduct = function(product)
 { 
   Cart.find({})
@@ -94,25 +82,25 @@ module.exports.hasProduct = function(product)
 };
 
 
-/*
-    adds a product to the cart (increments the count/ adds a new item)
-    @params product: Object
-    returns void
-*/
 module.exports.addItem = function(product){
     if(this.hasProduct(product))
     {
          Cart.find({})
             .populate({path: 'items.product', match: {id: {$eq: product.id}} })
-            .exec((err, result) =>{
+            .exec((err, result) =>{ 
+                //result contains an array of items that have been populated and given our condition-> one item
                 if(err || !result)
                 {
                     console.log("error: " + err + "or no result: " + result);
                     return;
                 }
                 else
-                {
-                    Cart.findOneAndUpdate({'items.product._id': result._id},  );
+                {   
+                    *****************************
+                    items.forEach((item)=>
+                    {
+                        item.product.id
+                    })   
                 }
 
         });
@@ -135,11 +123,7 @@ module.exports.addItem = function(product){
 };
 
 
-/*
-    decrements the count of an item in the cart or completely removes it(if count ==1)
-    @params: product: Object
-    @returns: void
-*/
+/* FIX */
 module.exports.removeItem = function(product){
     if(this.hasProduct(product))   
     {
@@ -149,6 +133,7 @@ module.exports.removeItem = function(product){
 
 
 /*
+FIX
 
 */
 module.exports.removeProduct = function(product){
@@ -188,11 +173,6 @@ module.exports.getItem = function(product){
 }
 
 
-/*
-    gets total price of all items in the Cart
-    @params: none
-    @returns totalPrice : Number
-*/
 module.exports.getTotal = function(){
     var totalPrice= 0;
 
@@ -204,11 +184,6 @@ module.exports.getTotal = function(){
 };
 
 
-/*
-    removes all items from cart
-    @params: none
-    @returns boolean (removed Successfully:true / error or cart was already empty:false)
-*/
 module.exports.clearCart = function(){
     Cart.remove({},(err, result) =>{
         if(err || !result)
