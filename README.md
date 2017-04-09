@@ -1,46 +1,80 @@
 # tasks
 #documentation of the methods exported
 
-1)Product Model:
+/**
+ * @name Product
+ * @description product constructor
+ * @param id : number
+ * @param name : string
+ * @param price : number
+ * @returns void 
+ */
+ 
+ /**
+ * @name Item
+ * @description item constructor. when passed 1 arg creates an item w/ count 1 (default).
+ * when passed 2 args, creates an item with the count and price specified
+ * @param product: Product Object 
+ * @param count(optional)
+ * @returns void 
+ */
+ 
+ /**
+ * @name: Cart
+ * @description Cart constructor , creates an empty array of items 
+ * @returns void 
+ */
+ 
+ /**
+ * @name: getItems
+ * @description returns all items in a cart
+ * @returns array of Items
+ */
 
-  createProduct()
-  @description: 
-  @params: newProduct: Object
-  @returns void
+/**
+ * @description checks if a product exists in a cart by comparing ids
+ * @param product: object
+ * @returns boolean
+ */
+ 
+ /**
+ * @name: addItem
+ * @description adds an item to the cart (if product already exists, increment count and adjust compound price of item, otherwise, add a new item w/ count 1)
+ * @param product: object
+ * @returns void 
+ */
+ 
+/**
+ * @name removeItem
+ * @description removes an item from the cart  
+ * @param product: object
+ * @returns void 
+ */
+ 
+ /**
+ * @name removeProduct
+ * @description removes a product completely from a cart (if it exists)
+ * @param product: Object
+ * @returns void
+ */
 
-2)Cart Model:
-  
-  getItems()
-  @description: returns all items in the cart
-  @params none
-  @returns result: []
 
-  hasProduct(product)
-  @description:checks if a product exists in a cart using its id (not _id)
-  @params product: Object 
-  @returns boolean
+/** 
+ * @name: getItem
+ * @description if a product exists in a cart, gets its item. otherwise, returns null
+ * @param product: object 
+ * @returns item: object or null
+ */
 
-  addItem(product)
-  @description: adds a product to the cart (increments the count/ adds a new item)
-  @params product: Object
-  @returns void
 
-  removeItem(product)
-  @description: decrements the count of an item in the cart or completely removes it(if count ==1)
-  @params: product: Object
-  @returns: void
-    
-    
-    
-    
-//
-    
-   getTotal() 
-   @description: gets total price of all items in the Cart
-   @params: none
-   @returns totalPrice : Number
-   
-   clearCart()
-   @description:removes all items from cart
-   @params: none
-   @returns boolean (removed Successfully:true / error or cart was already empty:false)
+/**
+ * @name: getTotal
+ * @description calculates total price of the cart
+ * @returns total: number
+ */
+ 
+ /**
+ * @name: clearCart
+ * @description removes all items from cart
+ * @returns void
+ */
