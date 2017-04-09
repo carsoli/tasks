@@ -32,6 +32,7 @@
  */
 
 /**
+ * @name: hasProduct
  * @description checks if a product exists in a cart by comparing ids
  * @param product: object
  * @returns boolean
