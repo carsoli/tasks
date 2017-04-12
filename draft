@@ -1,0 +1,64 @@
+//----------------add item
+// Cart.findOneAndUpdate({'items.product.id': product.id }, {$inc: {'items.product.count': 1}, $inc: {'items.product.price': product.price}}  ,(updErr,updRes)=>{
+//     if(updErr || updRes ==0)
+//     {
+//         console.log("couldn't update item, error: " + updErr + " ,or number of updated docs: " + updRes);
+//         return;
+//     }
+//     console.log("Number of updated docs: " + updRes);
+// })
+    
+  
+  
+  
+  
+  
+// Cart.findOne({'items.product.id': product.id}, (err, res)=>
+// {
+//     if(err)
+//     {
+//         console.log("Error:" + err.message);
+//         return;
+//     }
+//     if(!result)
+//     {
+
+//         console.log("no item was found");
+//     }
+//     else
+//     {
+//         if(res.product.count == 1)
+//         {
+//             Cart.findByIdAndRemove(res._id, (remErr, remResult)=>
+//             {
+//                 if(remErr)
+//                 {
+//                     console.log("error removing item" + err);
+//                     return ;
+//                 }
+//                 if(remResult ==0)
+//                 {
+//                     console.log("nothing removed" );
+//                     return;
+//                 }
+//                 console.log("removed" + remResult + "items");
+//             });
+//         }
+//         else 
+//         {
+//             Cart.findByIdAndUpdate(res._id , {$dec: {'product' }}, (updErr,updRes) =>
+//             {
+//                 if(updErr || updRes ==0)
+//                 {
+//                     console.log("error updating" + updErr + "/ no result updated; " + updRes+"docs affected");
+//                 }
+//                 else 
+//                 {
+//                     console.log(updRes + "docs affected");
+
+//                 }
+//             });
+//         }
+//     }
+
+// });
