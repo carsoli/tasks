@@ -39,15 +39,21 @@ var Cart =  {
 
 
     hasProduct: function(product){
-        return this.items.filter(function(item){
-            return item.product.id == product.id;}).
-            length > 0 ; 
+        // return this.items.filter(function(item){
+            // return item.product.id == product.id;
+            // }).length > 0 ;  
+        // })
+        
+        /* alternatively */
+        return this.items.find(function(item){
+            return item.product.id == product.id; 
+            }) != null ;
     },
 
 
     addItem: function(product){
         if(this.hasProduct(product)){
-            return this.items.map(function(item){//no different than forEach
+            return this.items.map(function(item){
                 if(item.product.id == product.id){
                     item.count ++; 
                     item.price += product.price; 
@@ -94,7 +100,7 @@ var Cart =  {
 
     getItem: function(product){
         if(this.hasProduct(product)){
-            return this.items.filter(function(item){
+            return this.items.find(function(item){
                 return item.product.id == product.id ;
             });
         }

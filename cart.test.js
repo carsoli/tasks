@@ -17,7 +17,7 @@ c1.addItem(p3);
 // console.log(c1.hasProduct(p1)); 
 // console.log(c1.getItems()); 
 // console.log(c1.getTotal()); //110
-console.log(c1.removeItem(p2)); //returns updated cart
+// console.log(c1.removeItem(p2)); //returns updated cart
 
 // console.log("********************************************");
 // c1.removeItem(p3); //returns updated cart
