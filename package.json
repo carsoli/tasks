@@ -4,19 +4,20 @@
   "description": "/**  * @name Product  * @description product constructor  * @param id : number  * @param name : string  * @param price : number  * @returns void   */",
   "main": "cart.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cover": "istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carsoli/tasks.git"
   },
-  "author": "",
+  "author": "carol",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/carsoli/tasks/issues"
   },
   "homepage": "https://github.com/carsoli/tasks#readme",
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0"
   }

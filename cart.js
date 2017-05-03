@@ -52,16 +52,26 @@ var Cart =  {
 
 
     addItem: function(product){
-        if(this.hasProduct(product)){
-            return this.items.map(function(item){
-                if(item.product.id == product.id){
-                    item.count ++; 
-                    item.price += product.price; 
-                }
-            });
-        } else{
+        // if(this.hasProduct(product)){
+        //     return this.items.map(function(item){
+        //         if(item.product.id == product.id){
+        //             item.count ++; 
+        //             item.price += product.price; 
+        //         }
+        //     });
+        // } else{
+        //     var newItem = Item.create(product, {});
+        //     this.items.push(newItem);
+        // }
+
+        /*alternatively*/
+        var index = this.indexOfProduct(product);
+        if(index == -1){
             var newItem = Item.create(product, {});
             this.items.push(newItem);
+        }else{
+            this.items[index].count ++;
+            this.items[index].price += product.price;
         }
     },
 
@@ -86,7 +96,7 @@ var Cart =  {
                         return prevValue;
                     }else {
                         currValue.count -= 1;
-                        currValue.price -= product.price//compound price
+                        currValue.price -= product.price; 
                     } 
                 }
                 return prevValue.concat(currValue); //in any case other than when product id matches and count =1
@@ -117,7 +127,20 @@ var Cart =  {
 
     clearCart: function(){
         this.items = [];
-    }
+    },
+
+
+    //helper method
+    indexOfProduct: function(product){
+        var found = -1;
+        this.items.forEach(function(item, index){
+        if((item.product.id == product.id) && found == -1){
+            found = index;
+        });
+        return found;
+    },
 }
 
 module.exports = {Product, Item, Cart};
+
+//alternatively we can specify explicitly which methods to export from Cart so as not to export the helpers 

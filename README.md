@@ -79,3 +79,9 @@
  * @description removes all items from cart
  * @returns void
  */
+
+/**
+* @name: indexOfProduct
+* @description same as indexOf in js array prototypes but for objects
+* @param product: Object Product
+*/
