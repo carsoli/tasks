@@ -39,91 +39,78 @@ var Cart =  {
 
 
     hasProduct: function(product){
-        var flag = false;
-        this.items.forEach(function(item){
-            // console.log("item id: " + item.product.id);
-            // console.log("input id: " +product.id);
-            if(item.product.id == product.id)
-                flag = true;
-        }); 
-        return flag;    
+        return this.items.filter(function(item){
+            return item.product.id == product.id;}).
+            length > 0 ; 
     },
 
 
     addItem: function(product){
-        // console.log(this);
-        var exists= false;
-        this.items.forEach(function(item){
-            if((item.product.id == product.id) &&(exists==false)){
-                item.count++; 
-                item.price += product.price;
-                exists = true; 
-            }
-        });
-        if(exists ==false){
+        if(this.hasProduct(product)){
+            return this.items.map(function(item){//no different than forEach
+                if(item.product.id == product.id){
+                    item.count ++; 
+                    item.price += product.price; 
+                }
+            });
+        } else{
             var newItem = Item.create(product, {});
-            // console.log("new item is: "+ newItem.product.id);
             this.items.push(newItem);
         }
     },
 
 
-    removeItem: function(product){
-        var nremoved =0;
-        this.items.forEach((item,index)=>{
-            if(item.product.id == product.id){
-                if(item.count>0){
-                    item.count--; 
-                    item.price -= product.price;
-                }else{
-                    this.items.splice(index,1);
-                }    
-                nremoved++;
+    removeProduct: function(product){
+        this.items = this.items.reduce(function(prevValue, currValue){
+            if(currValue.product.id != product.id){
+                return prevValue.concat(currValue);
             }
-        });
-        if(nremoved ==0)
-            console.log("Attempting to remove an item that does not exist in Cart");
+                return prevValue;  
+        }, []);
+    
+        return this.items;
     },
 
 
-    removeProduct: function(product){
-        var nremoved=0;
-        this.items.forEach((item,index)=>{
-            if(item.product.id==product.id){
-                nremoved+= item.count;
-                console.log("Number of items removed = " + nremoved);
-                this.items.splice(index,1);
-            }
-        });
-        if(nremoved ==0)
-            console.log("Attempting to remove an item that does not exist in Cart");
+    removeItem: function(product){
+        if(this.hasProduct(product)){
+            this.items = this.items.reduce(function(prevValue, currValue){
+                if(currValue.product.id == product.id){
+                    if(currValue.count == 1){ 
+                        return prevValue;
+                    }else {
+                        currValue.count -= 1;
+                        currValue.price -= product.price//compound price
+                    } 
+                }
+                return prevValue.concat(currValue); //in any case other than when product id matches and count =1
+            }, []);
+        }else
+            console.log("product not in cart");
+        
+        return this.items; 
     },
 
 
     getItem: function(product){
-        var output = null;
-        this.items.forEach(function(item){
-            if((item.product.id == product.id) && (output == null)){
-                output = item;
-            }
-        });
-        return output;
+        if(this.hasProduct(product)){
+            return this.items.filter(function(item){
+                return item.product.id == product.id ;
+            });
+        }
+        console.log("product not in cart");
     },
 
 
     getTotal: function(){
-        var total= 0;
-        this.items.forEach((item)=>{
-            total+= item.price;//compoud price of each item
-        });
-        return total;
+        return this.items.reduce(function(total, currValue){
+            return total + currValue.price;//compound price of the item
+        },0);
     },
 
 
     clearCart: function(){
-       this.items.forEach((item)=>{
-            this.items.pop();
-        });
+        this.items = [];
     }
 }
 

@@ -47,14 +47,14 @@
  
 /**
  * @name removeItem
- * @description removes an item from the cart  
+ * @description decrement the item count in the cart or completely removes it
  * @param product: object
  * @returns void 
  */
  
  /**
  * @name removeProduct
- * @description removes a product completely from a cart (if it exists)
+ * @description removes a product completely from a cart (if it exists) & returns updated array
  * @param product: Object
  * @returns void
  */
