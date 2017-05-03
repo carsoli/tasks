@@ -64,7 +64,7 @@ var Cart =  {
         //     this.items.push(newItem);
         // }
 
-        /*alternatively*/
+        /*=============== alternatively ====================*/
         var index = this.indexOfProduct(product);
         if(index == -1){
             var newItem = Item.create(product, {});
@@ -103,8 +103,21 @@ var Cart =  {
             }, []);
         }else
             console.log("product not in cart");
-        
+
         return this.items; 
+
+        /* ================ alternatively ====================*/
+        // var index = this.indexOfProduct(product);
+        // if(index != -1){
+        //     var item = this.items[index];
+        //     if(item.count == 1){
+        //         this.items.splice(index,1);
+        //     }
+        //     else {
+        //         this.items[index].count--; 
+        //         this.items[index].price -= product.price; 
+        //     }
+        // }
     },
 
 
@@ -134,9 +147,9 @@ var Cart =  {
     indexOfProduct: function(product){
         var found = -1;
         this.items.forEach(function(item, index){
-        if((item.product.id == product.id) && found == -1){
-            found = index;
-        });
+            if(item.product.id == product.id && found == -1)
+                found = index;
+        });       
         return found;
     },
 }
