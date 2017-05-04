@@ -7,7 +7,7 @@
 
 ``git clone https://github.com/carsoli/tasks.git``
 
-###*to install all dependencies (the package.json is already provided*
+###*to install all dependencies (the package.json is already provided)*
 
 ``npm install --save``
 
