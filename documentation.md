@@ -41,29 +41,29 @@
  * @name: addItem
  * @description adds an item to the cart (if product already exists, increment count and adjust compound price of item, otherwise, add a new item w/ count 1)
  * @param product: object
- * @returns void 
+ * @returns updated cart
  */
  
 /**
  * @name removeItem
  * @description decrement the item count in the cart or completely removes it
  * @param product: object
- * @returns void 
+ * @returns Updated Cart: Object or errorMessage: Object
  */
  
  /**
  * @name removeProduct
- * @description removes a product completely from a cart (if it exists) & returns updated array
+ * @description removes a product completely from a cart (if it exists)
  * @param product: Object
- * @returns void
+ * @returns Updated Cart: Object
  */
 
 
 /** 
  * @name: getItem
- * @description if a product exists in a cart, gets its item. otherwise, returns null
+ * @description if a product exists in a cart, gets its item. otherwise, returns errorMessage
  * @param product: object 
- * @returns item: object or null
+ * @returns item: Object or errorMessage: Object
  */
 
 

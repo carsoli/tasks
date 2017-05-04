@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/carsoli/tasks#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0"

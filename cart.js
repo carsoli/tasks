@@ -62,6 +62,7 @@ var Cart =  {
         // } else{
         //     var newItem = Item.create(product, {});
         //     this.items.push(newItem);
+        //     return this.items;
         // }
 
         /*=============== alternatively ===================*/
@@ -73,6 +74,7 @@ var Cart =  {
             this.items[index].count ++;
             this.items[index].price += product.price;
         }
+        return this.items;
     },
 
 
@@ -101,8 +103,9 @@ var Cart =  {
                 }
                 return prevValue.concat(currValue); //in any case other than when product id matches and count =1
             }, []);
-        }else
-            console.log("product not in cart");
+        }else{
+            return {errorMessage: "Product not in Cart"};
+        }
 
         return this.items; 
 
@@ -127,7 +130,7 @@ var Cart =  {
                 return item.product.id == product.id ;
             });
         }
-        console.log("product not in cart");
+        return {errorMessage: "Product not in Cart"};
     },
 
 
@@ -153,11 +156,8 @@ var Cart =  {
             });
     
         return found;
-    }
+    },
 }
-
-
-
 
 module.exports = {Product, Item, Cart};
 //alternatively we can specify explicitly which methods to export from Cart so as not to export the helpers 
