@@ -1,9 +1,10 @@
 {
   "name": "node_task",
   "version": "1.0.0",
-  "description": "/**  * @name Product  * @description product constructor  * @param id : number  * @param name : string  * @param price : number  * @returns void   */",
+  "description": "a simple cart oom with items & products",
   "main": "cart.js",
   "scripts": {
+    "test": "_mocha cart.test.js -R spec",
     "cover": "istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec"
   },
   "repository": {
@@ -19,6 +20,10 @@
   "devDependencies": {
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
+    "mocha": "^3.3.0"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
     "mocha": "^3.3.0"
   }
 }

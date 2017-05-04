@@ -44,7 +44,7 @@ var Cart =  {
             // }).length > 0 ;  
         // })
         
-        /* alternatively */
+        /* ============== alternatively ===================*/
         return this.items.find(function(item){
             return item.product.id == product.id; 
             }) != null ;
@@ -64,7 +64,7 @@ var Cart =  {
         //     this.items.push(newItem);
         // }
 
-        /*=============== alternatively ====================*/
+        /*=============== alternatively ===================*/
         var index = this.indexOfProduct(product);
         if(index == -1){
             var newItem = Item.create(product, {});
@@ -143,17 +143,21 @@ var Cart =  {
     },
 
 
-    //helper method
+    /*helper method*/
     indexOfProduct: function(product){
         var found = -1;
-        this.items.forEach(function(item, index){
-            if(item.product.id == product.id && found == -1)
-                found = index;
-        });       
+
+            this.items.forEach(function(item, index){
+                if(item.product.id == product.id && found == -1)
+                    found = index;
+            });
+    
         return found;
-    },
+    }
 }
 
-module.exports = {Product, Item, Cart};
 
+
+
+module.exports = {Product, Item, Cart};
 //alternatively we can specify explicitly which methods to export from Cart so as not to export the helpers 
