@@ -1,5 +1,4 @@
 # This is a simple js cart OOM example 
-***
 
 ## In your terminal, copy the following  
 
