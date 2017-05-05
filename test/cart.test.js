@@ -1,4 +1,4 @@
-var chai = require('chai');
+//var chai = require('chai'); //wanted to play around with chai but didn't (ignore it for now)
 var assert = require('assert');
 var exp = require('../cart.js');
 
