@@ -1,17 +1,17 @@
-#This is a simple js cart OOM example 
+# This is a simple js cart OOM example 
 ***
 
-##In your terminal, copy the following  
+## In your terminal, copy the following  
 
-###*to clone the repo:*
+### *to clone the repo:*
 
 ``git clone https://github.com/carsoli/tasks.git``
 
-###*to install all dependencies (the package.json is already provided)*
+### *to install all dependencies (the package.json is already provided)*
 
 ``npm install --save``
 
-###*to test:*
+### *to test:*
 
 ``mocha test/cart.test.js``
 
