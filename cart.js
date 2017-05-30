@@ -1,5 +1,6 @@
 var Product ={
     create: function(id, name, price){
+        // private scope : var
         var instance = Object.create(this); //Object.create(proto, [properties](optional));
         instance.id = id; 
         instance.name = name; 

@@ -4,7 +4,7 @@
   "description": "a simple cart oom with items & products",
   "main": "cart.js",
   "scripts": {
-    "test": "_mocha cart.test.js -R spec",
+    "test": "_mocha test/cart.test.js -R spec",
     "cover": "istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec"
   },
   "repository": {
