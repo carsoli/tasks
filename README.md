@@ -14,4 +14,4 @@
 
 ``mocha test/cart.test.js``
 
-[![Coverage Status](https://coveralls.io/repos/github.com/carsoli/tasks.git/badge.svg?branch=master)](https://coveralls.io/r/github.com/carsoli/tasks.git?branch=master)
+[![Coverage Status](https://coveralls.io/repos/carsoli/tasks.git/badge.svg?branch=master)](https://coveralls.io/r/carsoli/tasks.git?branch=master)
