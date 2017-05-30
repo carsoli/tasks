@@ -1,4 +1,4 @@
-#documentation of the methods exported
+## documentation of the methods exported
 
 /**
  * @name Product.create
