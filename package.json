@@ -4,8 +4,10 @@
   "description": "a simple cart oom with items & products",
   "main": "cart.js",
   "scripts": {
-    "test": "_mocha test/cart.test.js -R spec",
-    "cover": "istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec"
+    "test": "node node_modules/.bin/mocha",
+    "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",
+    "//test": "_mocha test/cart.test.js -R spec",
+    "//cover": "istanbul cover node_modules/.bin/_mocha -- -- -u exports -R spec"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,12 @@
     "chai": "^3.5.0",
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
-    "mocha": "^3.3.0"
+    "mocha": "^3.4.2"
   },
   "dependencies": {
     "assert": "^1.4.1",
-    "mocha": "^3.3.0"
+    "mocha": "^3.3.0",
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5"
   }
 }

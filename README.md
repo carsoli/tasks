@@ -13,7 +13,13 @@
 ### to test:
 
 ``mocha test/cart.test.js``
+
 #### or 
-``npm run test``
+
+``npm run test`` 
+
+#### or 
+
+``npm test``
 
 [![Coverage Status](https://coveralls.io/repos/carsoli/tasks.git/badge.svg?branch=master)](https://coveralls.io/r/carsoli/tasks.git?branch=master)
