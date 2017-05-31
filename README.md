@@ -2,16 +2,17 @@
 
 ## In your terminal, copy the following  
 
-### *to clone the repo:*
+### to clone the repo:
 
 ``git clone https://github.com/carsoli/tasks.git``
 
-### *to install all dependencies (the package.json is already provided)*
+### to install all dependencies (the package.json is already provided)
 
 ``npm install --save``
 
-### *to test:*
+### to test:
 
 ``mocha test/cart.test.js``
-
+#### or 
+``npm run test``
 [![Coverage Status](https://coveralls.io/repos/carsoli/tasks.git/badge.svg?branch=master)](https://coveralls.io/r/carsoli/tasks.git?branch=master)
