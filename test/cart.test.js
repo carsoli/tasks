@@ -1,13 +1,21 @@
+var Mocha = require('mocha');
+var mocha = new Mocha();
+
 // var chai = require('chai'); 
+// var should = require('should');
 // var expect = chai.expect; 
+// var assert = chai.assert;
+
 var assert = require('assert');
 var exp = require('../cart.js');
+var istanbul = require('istanbul');
 
 /* to test the product prototype {create} */
 describe('Product', function(){
   describe('#create', function(){
     it('should create a product object with an id, name, and price', function(){
       var testProduct = exp.Product.create(1, 'cheese',20);
+      // testProduct.should.deepEqual({ id: 1, name: 'cheese', price: 20 }); /* using should instead of assert*/
       assert.deepEqual({ id: 1, name: 'cheese', price: 20 }, testProduct);
     })
   })
